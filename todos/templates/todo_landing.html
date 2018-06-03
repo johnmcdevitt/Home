@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container jumbotron mycontent">
+  <h1>My ToDos</h1>
+  <table>
+    <tr>
+      <th>Priority</th>
+      <th>Title</th>
+      <th>Description</th> <!-- TODO rollover-->
+      <th>Status</th>
+      <th>Due Date</th>
+    </tr>
+{% for todo in mytodos %}
+  <tr>
+    <td>{{todo.get_priority_display}}</td>
+    <td>{{todo.title}}</td>
+    <td>{{todo.description}}</td>
+    <td>{{todo.get_status_display}}</td>
+    <td>{{todo.due_date}}</td>
+  </tr>
+
+{% endfor %}
+  </table>
+</div>
+
+
+
+<h1>All ToDos</h1>
+  {% for todo in all %}
+    <h3>{{todo.title}}</h3>
+  {% endfor %}
+
+
+
+{% endblock %}

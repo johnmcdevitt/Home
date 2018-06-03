@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <!-- Bootstrap recommended required meta tag -->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href={% static "css/master.css" %}>
+    <!--{# TODO add javascript
+    TODO add bootstrap
+    TODO add custom CSS#}-->
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+    <title>108-Centennial</title>
+  </head>
+  <body class="mysite">
+    <div class="container">
+      <nav class="navbar navbar-dark navbar-expand-lg bg-dark">
+            <a class="navbar-brand justify-content-center" href="/">108 Centennial</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            {% if user.is_authenticated %}
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href={% url 'rooms' %}>Rooms </a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href={% url 'floors' %}>Floors</a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href={% url 'images' %}>Images</a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href={% url 'todos' %}>To Dos</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Add stuff
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href={% url 'floor-create' %}>Floor</a>
+                    <a class="dropdown-item" href={% url 'room-create' %}>Room</a>
+                    <a class="dropdown-item" href={% url 'image-create' %}>Image</a>
+                    <a class="dropdown-item" href={% url 'todo-create' %}>To Do</a>
+                  </div>
+                </li>
+              </ul>
+
+              <ul class="nav navbar-nav ml-auto w-100 justify-content-end">
+                <li class="nav-item">Hi {{ user.first_name }}</li>
+                <li class="nav-item">
+                  <a class="nav-link" href={% url 'profile-update' %}>Edit profile</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href={% url 'logout' %}>Logout</a>
+                </li>
+
+
+
+
+
+
+              {% else %}
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                  <a href={% url 'login' %}><button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Login</button></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href={% url 'register' %}>SignUp! </a>
+                </li>
+              {% endif %}
+
+
+
+              </ul>
+            </div>
+        </nav>
+      </div>
+
+
+
+
+
+    <div class="container" id='content'>
+      {% block content %}{% endblock %}
+    </div>
+
+
+    <!-- Optional JavaScript Bootstrap CSS v4.0 JS -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  </body>
+</html>

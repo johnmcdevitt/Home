@@ -1,0 +1,32 @@
+.myclass {
+  color: #703229;
+}
+
+.mysite {
+  background-color: #703229;
+color: #eee9e0;
+}
+
+.mycontent {
+  color: black;
+}
+
+table,th,td {
+  border:5,5,5,5;
+  margin: auto;
+}
+
+.todo-overdue {
+  text-decoration: underline;
+  color:red;
+}
+
+.todo-done {
+  text-decoration: line-through;
+  color:grey;
+}
+
+.todo-approaching {
+  text-emphasis: 1;
+  color:yellow;
+}
