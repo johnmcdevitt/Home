@@ -30,3 +30,7 @@ table,th,td {
   text-emphasis: 1;
   color:yellow;
 }
+
+i {
+  color: red
+}
